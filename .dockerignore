@@ -1,0 +1,7 @@
+.git
+.github
+__pycache__
+*.gz
+dashboard.log
+awscliv2.zip
+backup_metrics.json

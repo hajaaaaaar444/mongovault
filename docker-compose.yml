@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mongovault:
+    image: mongovault:v1
+    container_name: mongovault-container
+    # Connect to host network so we can reach MongoDB on localhost
+    network_mode: "host"
+    restart: always
+    volumes:
+      # Pass AWS Credentials for uploading
+      - ~/.aws:/root/.aws:ro
+      # Pass the log file so the dashboard can see it
+      - ./backup_metrics.json:/home/ubuntu/backup_metrics.json

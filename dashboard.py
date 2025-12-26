@@ -5,7 +5,7 @@ import os
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(page_title="MongoDB Backup Monitor", page_icon="🛡️", layout="wide")
-st.title("🛡️ MongoDB Backup Command Center")
+st.title("🛡️ MongoDB backup command center")
 
 # --- LOAD DATA ---
 log_file = "/home/ubuntu/backup_metrics.json"

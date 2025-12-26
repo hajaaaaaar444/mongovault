@@ -1,0 +1,21 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Restart Application
+        run: |
+          # Stop the old version
+          docker compose down
+
+          # Start the new version (and rebuild if things changed)
+          docker compose up -d --build

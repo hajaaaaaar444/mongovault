@@ -57,7 +57,7 @@ else:
             st.line_chart(df, x="timestamp", y="size_bytes")
             
         with c2:
-            st.subheader("duration (Seconds)")
+            st.subheader("Duration (Seconds)")
             st.bar_chart(df, x="timestamp", y="duration_seconds")
 
         # --- RAW DATA ---

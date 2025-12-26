@@ -15,7 +15,7 @@ def send_alert(error_message):
     try:
         response = sns.publish(
             TopicArn=TOPIC_ARN,
-            Subject="🚨 FAILURE: MongoDB Backup Crashed",
+            Subject=" FAILURE: MongoDB Backup Crashed",
             Message=f"URGENT: Your MongoDB Backup process failed.\n\nError Details:\n{error_message}"
         )
         print("✅ Alert email sent successfully!")

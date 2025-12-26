@@ -43,3 +43,11 @@ echo "{\"timestamp\": \"$TIMESTAMP\", \"status\": \"$FINAL_STATUS\", \"size_byte
 rm -f $BACKUP_NAME
 
 echo "Job finished. Status: $FINAL_STATUS"
+echo "Starting backup..."
+
+# Try to backup. If it fails (||), run the alert script and stop.
+mongodump --uri="$MONGO_URI" --archive="$BACKUP_FILE" --gzip || {
+    echo " Backup failed! Sending alert..."
+    python3 alert.py "Mongodump command failed. "
+    exit 1
+}
